@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table id="mytable" class="table table-bordred table-striped" *ngIf="role != '3'">
+                    <thead>
+                        <th>Name</th>
+                        <th>gender</th>
+                        <th>mobie</th>
+                        <th>Email</th>
+                        <th>desg</th>
+                        <th *ngIf="role == '1'">Delete</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor='let row of userlist'>
+                            <td>{{row.name}}</td>
+                            <td>{{row.gender}}</td>
+                            <td>{{row.mobile}}</td>
+                            <td>{{row.emailid}}</td>
+                            <td>{{row.rolename}}</td>
+                            <td *ngIf="role == '1'"><button (click)='delete(row.id)'>Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

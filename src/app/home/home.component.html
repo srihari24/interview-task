@@ -1,0 +1,7 @@
+<div class="sidebar">
+
+    <a [ngClass]="isActive('/dashboard')" (click)="navigate('/dashboard')">dashboard</a>
+    <a [ngClass]="isActive('/report')" (click)="navigate('/report')" *ngIf="role != '3'">report</a>
+    <a routerLink="/login" (click)='logOut()'>LogOut</a>
+
+</div> 

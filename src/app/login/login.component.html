@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form #loginForm="ngForm">
+                <div class="card">
+                    <label>email id/mobile number</label>
+                    <input type='text' placeholder="email id/mobile number" [(ngModel)]='loginObj.username'
+                        #username='ngModel' name="username" required>
+                    <span *ngIf='username.touched && username.invalid'>This field is
+                        required</span>
+
+                    <label>password</label>
+                    <input type="password"  name="password" placeholder="password" [(ngModel)]='loginObj.password'
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required #password='ngModel'>
+                    <span *ngIf='password.touched && password.invalid'>required</span>
+                    <span *ngIf='password.dirty && password.errors?.pattern'> not valid number and Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</span>
+                    <button type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.valid"
+                        (click)='loginsubmit()'>login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
